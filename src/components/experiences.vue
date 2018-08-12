@@ -1,105 +1,145 @@
 <template>
-  <section id="experiences-section" class="experiences-section section">
-    <h2 class="section-title">Work Experiences</h2>
-    <div class="timeline">
-      <div class="item">
-        <div class="work-place">
-          <h3 class="place">Google</h3>
-          <div class="location">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>Mountain View</div>
+  <div id="containt">
+    <section id="experiences-section" class="experiences-section section">
+      <h2 class="section-title edit">Work Experiences</h2>
+      <div class="timeline">
+        <div class="item">
+          <div class="work-place">
+            <h3 class="place edit">Google</h3>
+            <div class="location edit">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>Mountain View</div>
+          </div>
+          <div class="job-meta">
+            <div class="title edit">Senior Software Engineer</div>
+            <div class="time edit">2016 - Present</div>
+          </div>
+          <!--//job-meta-->
+          <div class="job-desc">
+            <p class="edit">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+              sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+              nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+              In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+            <ul>
+              <li class="edit">Lorem ipsum dolor sit amet</li>
+              <li class="edit">Donec pede justo ante</li>
+              <li class="edit">Maecenas tempus tellus eget </li>
+            </ul>
+          </div>
+          <!--//job-desc-->
         </div>
-        <div class="job-meta">
-          <div class="title">Senior Software Engineer</div>
-          <div class="time">2016 - Present</div>
+        <!--//item-->
+
+        <div class="item">
+          <div class="work-place">
+            <h3 class="place edit">Apple</h3>
+            <div class="location edit">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>New York</div>
+          </div>
+          <div class="job-meta">
+            <div class="title edit">Lead Software Engineer</div>
+            <div class="time edit">2015 - 2016</div>
+          </div>
+          <!--//job-meta-->
+          <div class="job-desc">
+            <p class="edit">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+              sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+              nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+              In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+          </div>
+          <!--//job-desc-->
         </div>
-        <!--//job-meta-->
-        <div class="job-desc">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-            eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus
-            ut, imperdiet a, venenatis vitae, justo.</p>
-          <ul>
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>Donec pede justo ante</li>
-            <li>Maecenas tempus tellus eget </li>
-          </ul>
+        <!--//item-->
+
+        <div class="item">
+          <div class="work-place">
+            <h3 class="place edit">Twitter</h3>
+            <div class="location edit">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>London</div>
+          </div>
+          <div class="job-meta">
+            <div class="title edit">Software Engineer</div>
+            <div class="time edit">2013 - 2015</div>
+          </div>
+          <!--//job-meta-->
+          <div class="job-desc edit">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+              sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+              nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+              In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+          </div>
+          <!--//job-desc-->
         </div>
-        <!--//job-desc-->
+        <!--//item-->
+
+        <div class="item">
+          <div class="work-place">
+            <h3 class="place edit">Startup Hub</h3>
+            <div class="location edit">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>London</div>
+          </div>
+          <div class="job-meta">
+            <div class="title edit">Founder &amp; Lead Developer</div>
+            <div class="time edit">2012 - 2013</div>
+          </div>
+          <!--//job-meta-->
+          <div class="job-desc">
+            <p class="edit">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+              sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+              nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+              In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
+          </div>
+          <!--//job-desc-->
+        </div>
+        <!--//item-->
+
       </div>
-      <!--//item-->
+      <!--//timeline-->
 
-      <div class="item">
-        <div class="work-place">
-          <h3 class="place">Apple</h3>
-          <div class="location">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>New York</div>
-        </div>
-        <div class="job-meta">
-          <div class="title">Lead Software Engineer</div>
-          <div class="time">2015 - 2016</div>
-        </div>
-        <!--//job-meta-->
-        <div class="job-desc">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-            eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus
-            ut, imperdiet a, venenatis vitae, justo.</p>
-        </div>
-        <!--//job-desc-->
-      </div>
-      <!--//item-->
-
-      <div class="item">
-        <div class="work-place">
-          <h3 class="place">Twitter</h3>
-          <div class="location">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>London</div>
-        </div>
-        <div class="job-meta">
-          <div class="title">Software Engineer</div>
-          <div class="time">2013 - 2015</div>
-        </div>
-        <!--//job-meta-->
-        <div class="job-desc">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-            eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus
-            ut, imperdiet a, venenatis vitae, justo.</p>
-        </div>
-        <!--//job-desc-->
-      </div>
-      <!--//item-->
-
-      <div class="item">
-        <div class="work-place">
-          <h3 class="place">Startup Hub</h3>
-          <div class="location">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>London</div>
-        </div>
-        <div class="job-meta">
-          <div class="title">Founder &amp; Lead Developer</div>
-          <div class="time">2012 - 2013</div>
-        </div>
-        <!--//job-meta-->
-        <div class="job-desc">
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-            eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus
-            ut, imperdiet a, venenatis vitae, justo.</p>
-        </div>
-        <!--//job-desc-->
-      </div>
-      <!--//item-->
-
-    </div>
-    <!--//timeline-->
-
-  </section>
+    </section>
+  </div>
 </template>
 
 <script>
-  export default {
-
+   export default {
+    data() {
+      return {
+        personIntro: {},
+        editable: this.$store.getters.getEditable
+      }
+    },
+    created() {
+      this.getPerson()
+      this.$store.commit('setCurrentItem','experiences')
+    },
+    mounted() {
+      $('.edit')
+        .attr('contenteditable', this.editable)
+        .on('blur',() => {
+          const html = $('#containt').html()
+          this.$store.commit('editExperiences',html)
+        })
+    },
+    methods: {
+      getPerson() {
+        this.$http.get('/getPerson', {
+            params: {
+              userName: this.$store.state.userName
+            }
+          })
+          .then(res => {
+            console.log(res.data)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      },
+    },
+    watch: {
+      '$store.getters.getEditable': function (newVal) {
+        this.editable = newVal
+        $('.edit').attr('contenteditable', this.editable)
+      }
+    }
   }
 
 </script>

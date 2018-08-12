@@ -1,20 +1,27 @@
 <template>
     <div id="app">
-        <ybHeader :headFootShow="headFootShow"></ybHeader>
+        <transition name="header">
+            <ybHeader :headFootShow="headFootShow" v-if="infoShow" @goEdit="infoShow = false"></ybHeader>
+            <editheader :headFootShow="headFootShow" @cancelEdit="infoShow = true" v-else></editheader>
+        </transition>
             <div class="wrapper container">
                 <router-view></router-view>
             </div>     
-        <ybFooter :headFootShow="headFootShow"></ybFooter>
+        <transition name="footer">
+            <ybFooter :headFootShow="headFootShow" v-if="infoShow"></ybFooter>
+        </transition>
     </div>
 </template>
 
 <script>
 import ybHeader from '@/components/public/header'
 import ybFooter from '@/components/public/footer'
+import editheader from '@/components/public/editHeader'
 
     export default {
         data() {
             return {
+                infoShow: true,
                 headFootShow: true,
             }
         },
@@ -34,7 +41,7 @@ import ybFooter from '@/components/public/footer'
                     if(res.data.status != 200) 
                         this.$router.push('/login')
                 })         
-            }
+            },
         },
         watch: {
             '$route.path': function(newVal) {
@@ -48,7 +55,8 @@ import ybFooter from '@/components/public/footer'
         },
         components: {
             ybHeader,
-            ybFooter
+            ybFooter,
+            editheader
         }
     }
 </script>

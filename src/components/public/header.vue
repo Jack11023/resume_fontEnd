@@ -46,6 +46,9 @@
         <li>
           <button type="button" class="btn btn-normal btn-warning" @click="goRegister">注册</button>
         </li>
+         <li>
+          <button type="button" class="btn btn-normal btn-danger" @click="goEdit">编辑</button>
+        </li>
       </ul>
     </div>
 
@@ -64,19 +67,23 @@
     },
     props: ['headFootShow'],
     created() {
-        this.Info = this.$route.params.userName
+        this.Info = this.$store.getters.getUserName
     },
     methods: {
         getOut() {
-            this.$router.push('/login')
+          this.$router.push('/login')
         },
         goRegister() {
-            this.$router.push('/register')
+          this.$router.push('/register')
+        },
+        goEdit() {
+          this.$store.commit('makeEditable')
+          this.$emit('goEdit')
         }
     },
     watch: {
         '$route.path': function(newVal) {
-            this.Info = this.$store.state.userName
+            this.Info = this.$store.getters.getUserName
         }
     }
   }
