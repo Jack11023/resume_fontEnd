@@ -68,10 +68,10 @@
             this.isSuccess = true
             setTimeout(() => {
               this.isShow = false
-              this.$router.push('/')
-            },3000)
+              this.$store.commit('getIn',res.data.userName)
+              this.$router.push(`/home/`)
+            },500)
           })
-
           .catch(err => {
             console.log(err)
           })
@@ -100,7 +100,7 @@
     }
     .islogin-enter-active,
     .islogin-leave-active {
-      transition: all 3s ease
+      transition: all .5s ease
     }
   }
 
