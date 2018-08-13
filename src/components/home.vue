@@ -52,14 +52,20 @@
       this.$store.commit('setCurrentItem','home')
     },
     updated() {
-      $('.edit')
+      this.bindingEvent()
+    },
+    mounted() {
+      this.bindingEvent()
+    },
+    methods: {
+      bindingEvent() {
+        $('.edit')
         .attr('contenteditable', this.editable)
         .on('blur',() => {
           const html = $('#containt').html()
-          this.$store.commit('editHome',html)
+          this.$store.commit('editHome',html) 
         })
-    },
-    methods: {
+      },
       getPerson() {
         this.$http.get('/getPerson', {
             params: {

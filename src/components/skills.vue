@@ -92,15 +92,21 @@
       this.getPerson()
       this.$store.commit('setCurrentItem','skills')
     },
-     updated() {
-      $('.edit')
+    updated() {
+      this.bindingEvent()
+    },
+    mounted() {
+      this.bindingEvent()
+    },
+    methods: {
+      bindingEvent() {
+        $('.edit')
         .attr('contenteditable', this.editable)
         .on('blur',() => {
           const html = $('#containt').html()
-          this.$store.commit('editHome',html)
+          this.$store.commit('editSkills',html) 
         })
-    },
-    methods: {
+      },
       getPerson() {
         this.$http.get('/getSkills', {
             params: {

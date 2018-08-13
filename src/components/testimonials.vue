@@ -81,14 +81,20 @@
       this.$store.commit('setCurrentItem','testimonials')
     },
     updated() {
-      $('.edit')
+      this.bindingEvent()
+    },
+    mounted() {
+      this.bindingEvent()
+    },
+    methods: {
+      bindingEvent() {
+        $('.edit')
         .attr('contenteditable', this.editable)
         .on('blur',() => {
           const html = $('#containt').html()
-          this.$store.commit('editHome',html)
+          this.$store.commit('editTestimonials',html) 
         })
-    },
-    methods: {
+      },
       getPerson() {
         this.$http.get('/getTestimonials', {
             params: {
