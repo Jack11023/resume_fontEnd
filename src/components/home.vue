@@ -93,6 +93,9 @@
 </script>
 
 <style lang="less" scoped>
-
+  .profile.edit {
+    display: flex;
+    justify-content: center;
+  }
 
 </style>
