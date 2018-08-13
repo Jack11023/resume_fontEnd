@@ -39,23 +39,6 @@ import "@/assets/plugins/font-awesome/css/font-awesome.css"
 import "@/assets/css/styles.css"
     export default {
         props: ['headFootShow'],
-        mounted() {
-           this.headFootShow&&
-           $(window).on('scroll resize load', function() {     
-                $('#page-nav-wrapper').removeClass('fixed');           
-                var scrollTop = $(this).scrollTop();
-                var topDistance = $('#page-nav-wrapper').offset().top;
-                
-                if ( (topDistance) > scrollTop ) {
-                    $('#page-nav-wrapper').removeClass('fixed');
-                    $('body').removeClass('sticky-page-nav');
-                }
-                else {
-                    $('#page-nav-wrapper').addClass('fixed');
-                    $('body').addClass('sticky-page-nav');
-                }
-            });
-        },
     }
 </script>
 

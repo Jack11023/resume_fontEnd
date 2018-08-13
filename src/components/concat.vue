@@ -1,6 +1,15 @@
 <template>
-  <div id="containt">
-    <section id="contact-section" class="contact-section section">
+  <div id="containt" v-html="html">
+  </div>
+</template>
+
+<script>
+   export default {
+    data() {
+      return {
+        personIntro: {},
+        editable: this.$store.getters.getEditable,
+        html: `<section id="contact-section" class="contact-section section">
       <h2 class="section-title edit">Get in Touch</h2>
       <div class="intro">
         <img class="profile-image" src="assets/images/profile-image.png" alt="">
@@ -61,39 +70,32 @@
       </div>
       <!--//intro-->
 
-    </section>
-  </div>
-</template>
-
-<script>
-   export default {
-    data() {
-      return {
-        personIntro: {},
-        editable: this.$store.getters.getEditable
+    </section>`
       }
     },
     created() {
       this.getPerson()
       this.$store.commit('setCurrentItem','concat')
     },
-    mounted() {
+   updated() {
       $('.edit')
         .attr('contenteditable', this.editable)
         .on('blur',() => {
           const html = $('#containt').html()
-          this.$store.commit('editConcat',html)
+          this.$store.commit('editHome',html)
         })
     },
     methods: {
       getPerson() {
-        this.$http.get('/getPerson', {
+        this.$http.get('/getConcat', {
             params: {
               userName: this.$store.state.userName
             }
           })
           .then(res => {
-            console.log(res.data)
+            if(res.data.status != 200) 
+              return console.log('宝贝儿,您还没有数据哦!')
+            this.html = res.data.data
           })
           .catch(err => {
             console.log(err)

@@ -1,6 +1,15 @@
 <template>
-  <div id="containt">
-    <section id="eudcation-section" class="education-section section">
+  <div id="containt" v-html="html">
+  </div>
+</template>
+
+<script>
+   export default {
+    data() {
+      return {
+        personIntro: {},
+        editable: this.$store.getters.getEditable,
+        html: `<section id="eudcation-section" class="education-section section">
       <h2 class="section-title edit">Education</h2>
       <div class="row">
         <div class="item col-xs-12 col-sm-4">
@@ -54,39 +63,32 @@
 
       </div>
       <!--//row-->
-    </section>
-  </div>
-</template>
-
-<script>
-   export default {
-    data() {
-      return {
-        personIntro: {},
-        editable: this.$store.getters.getEditable
+    </section>`
       }
     },
     created() {
       this.getPerson()
       this.$store.commit('setCurrentItem','education')
     },
-    mounted() {
+    updated() {
       $('.edit')
         .attr('contenteditable', this.editable)
         .on('blur',() => {
           const html = $('#containt').html()
-          this.$store.commit('editEducation',html)
+          this.$store.commit('editHome',html)
         })
     },
     methods: {
       getPerson() {
-        this.$http.get('/getPerson', {
+        this.$http.get('/getEducation', {
             params: {
               userName: this.$store.state.userName
             }
           })
           .then(res => {
-            console.log(res.data)
+            if(res.data.status != 200) 
+              return console.log('宝贝儿,您还没有数据哦!')
+            this.html = res.data.data
           })
           .catch(err => {
             console.log(err)

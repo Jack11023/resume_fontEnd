@@ -56,7 +56,7 @@
                 <input type="hidden" id="act" value="add" name="act" />
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                <button type="button" id="shutdown" class="btn btn-default" data-dismiss="modal">关闭
                 </button>
                 <button type="button" @click.prevent="submitInfo" class="btn btn-primary">
                   提交更改
@@ -86,10 +86,12 @@ import '@/assets/plugins/bootstrap/js/bootstrap'
       this.Info = this.$store.getters.getUserName
     },
     methods: {
+      //取消编辑
       cancel() {
         this.$store.commit('makeUnEditable')
         this.$emit('cancelEdit')
       },
+      //提交编辑
       submitInfo() {
         //获取当前页面组件名
         var currentItem = this.$store.getters.getCurrentItem
@@ -108,9 +110,12 @@ import '@/assets/plugins/bootstrap/js/bootstrap'
         formData.append('userPwd',userPwd)
         formData.append('html',html)
         //进行axios请求
-        this.$http.post('postPerson',formData)
+        this.$http.post(`post${currentItem}`,formData)
         .then(res => {
-          console.log(res.data)
+          $('#shutdown').trigger('click')
+          if(res.data.status !== 200) 
+            return alert('编辑失败!')
+          setTimeout(this.cancel,1500)
         })
         .catch(err => console.log(err))
       }

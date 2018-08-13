@@ -1,6 +1,15 @@
 <template>
-  <div id="containt">
-    <div class="intro">
+  <div id="containt" v-html="html">
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        personIntro: {},
+        editable: this.$store.getters.getEditable,
+        html: `<div class="intro">
       <div class="container text-center">
         <img class="profile-image" src="assets/images/profile-image.png" alt="">
         <h1 class="name edit">James Doe</h1>
@@ -35,23 +44,14 @@
         </ul>
       </div>
       <!--//container-->
-    </div>
-  </div>
-</template>
-
-<script>
-  export default {
-    data() {
-      return {
-        personIntro: {},
-        editable: this.$store.getters.getEditable
+    </div>`
       }
     },
     created() {
       this.getPerson()
       this.$store.commit('setCurrentItem','home')
     },
-    mounted() {
+    updated() {
       $('.edit')
         .attr('contenteditable', this.editable)
         .on('blur',() => {
@@ -67,7 +67,9 @@
             }
           })
           .then(res => {
-            console.log(res.data)
+            if(res.data.status != 200) 
+              return console.log('宝贝儿,您还没有数据哦!')
+            this.html = res.data.data
           })
           .catch(err => {
             console.log(err)

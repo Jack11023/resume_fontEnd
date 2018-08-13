@@ -1,6 +1,15 @@
 <template>
-  <div id="containt">
-    <section id="testimonials-section" class="testimonials-section section">
+  <div id="containt" v-html="html">  
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        personIntro: {},
+        editable: this.$store.getters.getEditable,
+        html: ` <section id="testimonials-section" class="testimonials-section section">
       <h2 class="section-title edit">Testimonials</h2>
 
       <div id="testimonials-carousel" class="testimonials-carousel carousel slide" data-interval="8000">
@@ -64,39 +73,32 @@
       </div>
       <!--//testimonials-carousel-->
 
-    </section>
-  </div>
-</template>
-
-<script>
-  export default {
-    data() {
-      return {
-        personIntro: {},
-        editable: this.$store.getters.getEditable
+    </section>`
       }
     },
     created() {
       this.getPerson()
       this.$store.commit('setCurrentItem','testimonials')
     },
-    mounted() {
+    updated() {
       $('.edit')
         .attr('contenteditable', this.editable)
         .on('blur',() => {
           const html = $('#containt').html()
-          this.$store.commit('editTestimonials',html)
+          this.$store.commit('editHome',html)
         })
     },
     methods: {
       getPerson() {
-        this.$http.get('/getPerson', {
+        this.$http.get('/getTestimonials', {
             params: {
               userName: this.$store.state.userName
             }
           })
           .then(res => {
-            console.log(res.data)
+            if(res.data.status != 200) 
+              return console.log('宝贝儿,您还没有数据哦!')
+            this.html = res.data.data
           })
           .catch(err => {
             console.log(err)
